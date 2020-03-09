@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ybX-su-KLH">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Agora_AR_Call" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0C-zR-Lgx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJG-Nc-7uC">
+                                <rect key="frame" x="276" y="52" width="130" height="220"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="6oM-hN-TLy"/>
+                                    <constraint firstAttribute="width" constant="130" id="BtX-mx-8QE"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CJl-we-hIa">
+                                <rect key="frame" x="8" y="810" width="398" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F8-OH-dEc">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="mic.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="muteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WdE-ES-fwF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Y5-qf-19T">
+                                        <rect key="frame" x="135.5" y="0.0" width="127" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="phone.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="cancelCallButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ntJ-ot-Lu2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0kq-TK-FVw">
+                                        <rect key="frame" x="270.5" y="0.0" width="127.5" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="camera.rotate.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="rotateCameraButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y4R-HU-1Qj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="k2c-hh-iWe"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CJl-we-hIa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FVz-ar-Uek"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PJG-Nc-7uC" secondAttribute="trailing" constant="8" id="G3x-tD-1AC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CJl-we-hIa" secondAttribute="trailing" constant="8" id="G71-V8-Xje"/>
+                            <constraint firstItem="F0C-zR-Lgx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Jad-rB-68h"/>
+                            <constraint firstItem="CJl-we-hIa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="LMx-52-fYP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CJl-we-hIa" secondAttribute="bottom" constant="8" id="Lty-Yv-f3G"/>
+                            <constraint firstItem="F0C-zR-Lgx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Xye-dH-KqE"/>
+                            <constraint firstItem="PJG-Nc-7uC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="b3v-bS-VAH"/>
+                            <constraint firstItem="F0C-zR-Lgx" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jF0-gE-6Ip"/>
+                            <constraint firstItem="F0C-zR-Lgx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xOI-eT-S7k"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelCallButton" destination="7Y5-qf-19T" id="oF9-Vd-ICl"/>
+                        <outlet property="localView" destination="PJG-Nc-7uC" id="E94-Gf-yVF"/>
+                        <outlet property="muteButton" destination="6F8-OH-dEc" id="Ew9-rT-aff"/>
+                        <outlet property="remoteView" destination="F0C-zR-Lgx" id="gAG-U9-RHF"/>
+                        <outlet property="rotateCameraButton" destination="0kq-TK-FVw" id="Yd3-oD-Avs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81.159420289855078" y="129.91071428571428"/>
+        </scene>
+        <!--Host View Controller-->
+        <scene sceneID="UEV-oV-2qN">
+            <objects>
+                <viewController id="ybX-su-KLH" customClass="HostViewController" customModule="Agora_AR_Call" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hv5-0s-AfW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wu0-fS-rig">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </arscnView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQN-Pk-fpd">
+                                <rect key="frame" x="276" y="52" width="130" height="220"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="LEF-UM-7DY"/>
+                                    <constraint firstAttribute="height" constant="220" id="QHu-yJ-CPh"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xgh-in-4kf">
+                                <rect key="frame" x="8" y="810" width="398" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CO-O4-qae">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.5" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="mic.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="muteButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qbk-m5-JB3"/>
+                                            <action selector="muteButtonPressed:" destination="ybX-su-KLH" eventType="touchUpInside" id="VNT-0X-Ojs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VnK-Ag-kAz">
+                                        <rect key="frame" x="135.5" y="0.0" width="127" height="44"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="phone.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="cancelCallButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dBy-b1-ggn"/>
+                                            <action selector="cancelCallButtonPressed:" destination="ybX-su-KLH" eventType="touchUpInside" id="enq-xc-tSQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBU-k7-0gD">
+                                        <rect key="frame" x="270.5" y="0.0" width="127.5" height="44"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="camera.rotate.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="rotateCameraButtonPressed:" destination="ybX-su-KLH" eventType="touchUpInside" id="dwQ-Xq-2E8"/>
+                                            <action selector="rotateCameraButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xEU-LD-l8E"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rO3-YZ-SBy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mQN-Pk-fpd" firstAttribute="top" secondItem="Qb0-Pi-owc" secondAttribute="top" constant="8" id="747-Iq-Jdk"/>
+                            <constraint firstItem="Qb0-Pi-owc" firstAttribute="bottom" secondItem="Xgh-in-4kf" secondAttribute="bottom" constant="8" id="7J5-WT-WoC"/>
+                            <constraint firstItem="Qb0-Pi-owc" firstAttribute="trailing" secondItem="mQN-Pk-fpd" secondAttribute="trailing" constant="8" id="Rup-Gv-XxV"/>
+                            <constraint firstItem="wu0-fS-rig" firstAttribute="top" secondItem="Qb0-Pi-owc" secondAttribute="top" id="UfD-mx-9mS"/>
+                            <constraint firstItem="wu0-fS-rig" firstAttribute="leading" secondItem="Qb0-Pi-owc" secondAttribute="leading" id="cQd-SU-4ri"/>
+                            <constraint firstItem="Qb0-Pi-owc" firstAttribute="trailing" secondItem="Xgh-in-4kf" secondAttribute="trailing" constant="8" id="lUz-cQ-kPL"/>
+                            <constraint firstItem="wu0-fS-rig" firstAttribute="trailing" secondItem="Qb0-Pi-owc" secondAttribute="trailing" id="lx9-5M-nGU"/>
+                            <constraint firstItem="wu0-fS-rig" firstAttribute="bottom" secondItem="Qb0-Pi-owc" secondAttribute="bottom" id="s3K-JT-TuA"/>
+                            <constraint firstItem="Xgh-in-4kf" firstAttribute="leading" secondItem="Qb0-Pi-owc" secondAttribute="leading" constant="8" id="xDz-10-kmw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qb0-Pi-owc"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelCallButton" destination="VnK-Ag-kAz" id="UUI-Co-Yzg"/>
+                        <outlet property="muteButton" destination="8CO-O4-qae" id="dR2-2r-Jyz"/>
+                        <outlet property="remoteView" destination="mQN-Pk-fpd" id="Y6r-WF-4bo"/>
+                        <outlet property="rotateCameraButton" destination="GBU-k7-0gD" id="r7D-Sk-cra"/>
+                        <outlet property="sceneView" destination="wu0-fS-rig" id="2a7-3M-MES"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yf5-a3-Ury" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="714.49275362318849" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera.rotate.fill" catalog="system" width="64" height="48"/>
+        <image name="mic.fill" catalog="system" width="54" height="64"/>
+        <image name="phone.fill" catalog="system" width="64" height="56"/>
+    </resources>
+</document>
