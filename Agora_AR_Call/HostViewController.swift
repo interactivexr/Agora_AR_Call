@@ -95,7 +95,7 @@ class HostViewController: UIViewController, AgoraViewControllerProtocol {
     {
         let timer = Timer.scheduledTimer(withTimeInterval: 0.016, repeats: true) { _ in
             let sceneImage: UIImage = self.sceneView.snapshot()
-            DispatchQueue.global(qos: .utility).async {
+            DispatchQueue.global(qos: .userInteractive).async {
                 // Here you must provide pixel buffer or raw data to consumer.
                 // To change between pixel buffer and raw data take a look at VideoSource class.
                 if let pixelBuffer = sceneImage.cgImage?.copyPixelbufferFromCGImageProvider()
