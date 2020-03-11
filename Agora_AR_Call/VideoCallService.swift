@@ -92,4 +92,23 @@ extension VideoCallService: AgoraRtcEngineDelegate {
             self.setupRemoteView(with: uid)
         }
     }
+    
+    func rtcEngine(_ engine: AgoraRtcEngineKit, remoteVideoStats stats: AgoraRtcRemoteVideoStats) {
+        print("\t\t\t\t\t\t\t**** receivedBitrate: \(stats.receivedBitrate)")
+        print("\t\t\t\t\t\t\t**** decoderOutputFrameRate: \(stats.decoderOutputFrameRate)")
+        print("\t\t\t\t\t\t\t**** rendererOutputFrameRate: \(stats.rendererOutputFrameRate)")
+        print("\t\t\t\t\t\t\t**** totalFrozenTime: \(stats.totalFrozenTime)")
+        print("\t\t\t\t\t\t\t**** frozenRate: \(stats.frozenRate)")
+        print("\n\n")
+    }
+    
+    func rtcEngine(_ engine: AgoraRtcEngineKit, localVideoStats stats: AgoraRtcLocalVideoStats) {
+        print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t** sentBitrate: \(stats.sentBitrate)")
+        print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t** sentFrameRate: \(stats.sentFrameRate)")
+        print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t** encoderOutputFrameRate: \(stats.encoderOutputFrameRate)")
+        print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t** rendererOutputFrameRate: \(stats.rendererOutputFrameRate)")
+        print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t** sentTargetBitrate: \(stats.sentTargetBitrate)")
+        print("\t\t\t\t\t\t\t\t\t\t\t\t\t\t** sentTargetFrameRate: \(stats.sentTargetFrameRate)")
+        print("\n\n")
+    }
 }
