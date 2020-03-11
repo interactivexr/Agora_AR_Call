@@ -80,10 +80,31 @@ class HostViewController: UIViewController, AgoraViewControllerProtocol {
         sceneView.preferredFramesPerSecond = 30
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
+    
+    private lazy var displayLink: CADisplayLink =
+    {
+        let displayLink = CADisplayLink(target: self, selector: #selector(displayLinkFired))
+        displayLink.preferredFramesPerSecond = 30
+        displayLink.isPaused = true
+        displayLink.add(to: .main, forMode: .common)
 
+        return displayLink
+    }()
+    
+    @objc func displayLinkFired()
+    {
+        let sceneImage = self.sceneView.snapshot()
+        
+        if let pixelBuffer = sceneImage.cgImage?.copyPixelbufferFromCGImageProvider()
+        {
+            self.videoCallService.consumeVideoData(pixelBuffer: pixelBuffer, with: Double(mach_absolute_time()))
+        }
+    }
+    
     // THIS IS PART WHERE CAPTURING HAPPENS
     private func startCaptureView() {
-        startTimerForCapturing()
+        startDisplayLinkForCapturing()
+//        startTimerForCapturing()
     }
     
     private func startDisplayLinkForCapturing()
