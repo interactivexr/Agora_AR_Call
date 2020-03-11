@@ -39,3 +39,43 @@ struct ImageConverter {
     }
     
 }
+
+extension CGImage
+{
+    func copyPixelbufferFromCGImageProvider() -> CVPixelBuffer?
+    {
+        guard let data = dataProvider?.data,
+            let baseAddress = CFDataGetBytePtr(data)
+        else
+        {
+            return nil
+        }
+        
+        let unmanagedData = Unmanaged<CFData>.passRetained(data)
+        var pixelBuffer: CVPixelBuffer? = nil
+        let status = CVPixelBufferCreateWithBytes(nil,
+                                                  width,
+                                                  height,
+                                                  kCVPixelFormatType_32BGRA,
+                                                  UnsafeMutableRawPointer(mutating: baseAddress),
+                                                  bytesPerRow,
+                                                  {
+                                                    releaseContext, baseAddress in
+                                                    
+                                                    if let releaseContext = releaseContext
+                                                    {
+                                                        let contextData = Unmanaged<CFData>.fromOpaque(releaseContext)
+                                                        contextData.release()
+                                                    }
+                                                  },
+                                                  unmanagedData.toOpaque(),
+                                                  nil,
+                                                  &pixelBuffer)
+        if (status != kCVReturnSuccess)
+        {
+            return nil
+        }
+        
+        return pixelBuffer
+    }
+}
