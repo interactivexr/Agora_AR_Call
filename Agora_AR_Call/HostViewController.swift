@@ -83,6 +83,16 @@ class HostViewController: UIViewController, AgoraViewControllerProtocol {
 
     // THIS IS PART WHERE CAPTURING HAPPENS
     private func startCaptureView() {
+        startTimerForCapturing()
+    }
+    
+    private func startDisplayLinkForCapturing()
+    {
+        displayLink.isPaused = false
+    }
+    
+    private func startTimerForCapturing()
+    {
         let timer = Timer.scheduledTimer(withTimeInterval: 0.016, repeats: true) { _ in
             let sceneImage: UIImage = self.sceneView.snapshot()
             DispatchQueue.global(qos: .utility).async {
