@@ -12,6 +12,7 @@ import ARKit
 class HostViewController: UIViewController, AgoraViewControllerProtocol {
     
     var videoCallService: VideoCallService!
+    private var useRawCapturedImage = false // set this to true to send the ARFrame captured image. It works smoothly, but the pixel buffer type is different. This might be a clue for further investigation.
     
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var remoteView: UIView!
@@ -54,7 +55,11 @@ class HostViewController: UIViewController, AgoraViewControllerProtocol {
         videoCallService.setVideoSource()
         videoCallService.enableVideoForHost()
         videoCallService.joinChannel(with: 0) { _ in
-            self.startCaptureView()
+            
+            if self.useRawCapturedImage == false
+            {
+                self.startCaptureView()
+            }
         }
     }
     
@@ -131,5 +136,21 @@ class HostViewController: UIViewController, AgoraViewControllerProtocol {
 }
 
 extension HostViewController: ARSCNViewDelegate {
-    
+
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        
+        guard useRawCapturedImage
+        else
+        {
+            return
+        }
+        
+        if let frame = (renderer as? ARSCNView)?.session.currentFrame
+        {
+            let pixelBuffer = frame.capturedImage
+            
+//            print(pixelBuffer.pixelFormatName())
+            videoCallService.consumeVideoData(pixelBuffer: pixelBuffer, with: time)
+        }
+    }
 }
